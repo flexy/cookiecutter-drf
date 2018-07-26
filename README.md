@@ -1,4 +1,4 @@
-# FNDRZ Template API
+# cookiecutter-drf
 [![Build Status](https://travis-ci.com/fndrz/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/fndrz/cookiecutter-drf)
 
 ## Requirements
@@ -34,7 +34,7 @@
 * Code quality (Flake8)
 * Travis CI
 
-### Deployment:
+### Continuous deployment:
 * Heroku
 
 

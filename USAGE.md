@@ -1,4 +1,4 @@
-# FNDRZ Template Usage
+# cookiecutter-drf Usage
 
 
 ## Setup
@@ -37,12 +37,21 @@
 
 | Key | Value |
 | --- | --- |
-| DEPLOY_DEV_ENABLED | `true` |
-| DEPLOY_DEV_BRANCH | `develop` |
+| DJANGO_SECRET_KEY | A unique, unpredictable value |
+
+
+# Continuous Deployment Setup
+
+Add the following environment variables to your Travis project settings:
+
+| Key | Value |
+| --- | --- |
+| DEPLOY_DEV_ENABLED | `true` (`false` to explicitly disable) |
+| DEPLOY_DEV_BRANCH | `develop` (or your dev branch) |
 | DEPLOY_DEV_REGISTRY_URL | `registry.heroku.com` |
 | DEPLOY_DEV_APP_URL | `registry.heroku.com/<Heroku Dev App Slug>/web` |
-| DEPLOY_PROD_ENABLED | `true` |
-| DEPLOY_PROD_BRANCH | `master` |
+| DEPLOY_PROD_ENABLED | `true` (`false` to explicitly disable) |
+| DEPLOY_PROD_BRANCH | `master` (or your prod branch) |
 | DEPLOY_PROD_REGISTRY_URL | `registry.heroku.com` |
 | DEPLOY_PROD_APP_URL | `registry.heroku.com/<Heroku Prod App Slug>/web` |
 | DOCKER_USERNAME | *Docker username* |
