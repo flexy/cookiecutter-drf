@@ -1,0 +1,26 @@
+version: '3.6'
+
+services:
+  postgres:
+    image: postgres:9.6
+
+  web:
+    restart: always
+    environment:
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
+      - DJANGO_CORS_ORIGIN_WHITELIST=${DJANGO_CORS_ORIGIN_WHITELIST}
+    image: web
+    build: ./
+    command: >
+      bash -c "
+        python wait_for_postgres.py &&
+        ./manage.py migrate &&
+        ./manage.py runserver 0.0.0.0:8000
+      "
+    volumes:
+      - ./:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres

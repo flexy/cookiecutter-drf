@@ -1,0 +1,42 @@
+sudo: required
+dist: xenial
+
+language: python
+python:
+- '3.7'
+cache: pip
+
+services:
+- docker
+
+jobs:
+  include:
+  - stage: test
+    before_install: bash travis/before_install.sh
+    install: true
+    script: bash travis/test.sh
+
+  - stage: deploy
+    if: branch = master
+    install: true
+    script: skip
+    deploy:
+      provider: script
+      script: bash travis/deploy_master.sh
+      on:
+        branch: master
+
+  - stage: deploy
+    if: branch = develop
+    install: true
+    script: skip
+    deploy:
+      provider: script
+      script: bash travis/deploy_develop.sh
+      on:
+        branch: develop
+
+notifications:
+  email: false
+  slack:
+    secure: l4RSXj3wAAKKHSV3G9N6PtrMNmb+c1qo/tu9OxQwdD2hzqgAhiCaXtHjBEgc2te0U5y4nei14n4XCXNGrumW/DhUkSa+SbD5Hz5leWYVHoBZWewu9QLL3HXBxP+NOdCnSXtzYtWPzuYoa2ukYjE85Cv7kXSBYQP3bQ4luspQYistijupL1OzSEF2iPE6Mk8ZZNc7K3EwgdGZHYw+MIo5GoGCQn2hfep8jJlULy0JGQwChOn7U5yv/RyK5NSm2ek5n6SCYVj6SZoawZhzN1ezXxWZJMFXWm/64Wh3o+ta2E0WSIvaHrK9VsQb8sFpsRsCIQzNzwQORYJWnKa94ITYwhZ7zu5FhozSUA8eO7cPSdyRdoo3H0TPJCainvt5k1S0D7R1eHI2tL0ssYu54isO7fAfDO0MQG0g+rs/SkvRx6ecRwixkM6qGvB8Qr+lI3HTiXOMdcd6kmX90tBPVo+YdDxXvcksf6EbDtTN5RjVK8dyBK05v84sR/xFFN+d7oQJ55PuZyGtYg9yGI03VBQ3wLj+7EAGSWHzWTQBhHdVre2oVLwGzFJU4G2sAPNu1ohXXx4JmU0vlKdrn25JwKUaWMRo+iUwRBGhRobEoevYfe5DLRQMtzPDXXhhbtBAb8/UcBsNDN63tsOv1S1XHC7/vZFA05ZeJ09czLmZBB24z80=
