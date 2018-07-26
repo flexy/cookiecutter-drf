@@ -51,10 +51,6 @@
 3. Register a new OAuth application:
   * Visit the application registration endpoint: http://localhost:8000/api/v1/oauth/applications/register/
 
-  * Use the following settings:
-    * Client Type: `Public`
-    * Authorization Grant Type: `Implicit`
-
 
 # Other Tasks
 * Build the project:
