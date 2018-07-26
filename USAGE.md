@@ -37,10 +37,14 @@
 
 | Key | Value |
 | --- | --- |
-| DEV_REGISTRY_URL | `registry.heroku.com` |
-| DEV_APP_URL | `registry.heroku.com/<Heroku Dev App Slug>/web` |
-| PROD_REGISTRY_URL | `registry.heroku.com` |
-| PROD_APP_URL | `registry.heroku.com/<Heroku Prod App Slug>/web` |
+| DEPLOY_DEV_ENABLED | `true` |
+| DEPLOY_DEV_BRANCH | `develop` |
+| DEPLOY_DEV_REGISTRY_URL | `registry.heroku.com` |
+| DEPLOY_DEV_APP_URL | `registry.heroku.com/<Heroku Dev App Slug>/web` |
+| DEPLOY_PROD_ENABLED | `true` |
+| DEPLOY_PROD_BRANCH | `master` |
+| DEPLOY_PROD_REGISTRY_URL | `registry.heroku.com` |
+| DEPLOY_PROD_APP_URL | `registry.heroku.com/<Heroku Prod App Slug>/web` |
 | DOCKER_USERNAME | *Docker username* |
 | DOCKER_PASSWORD | *Docker password* |
 
