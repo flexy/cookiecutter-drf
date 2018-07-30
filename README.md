@@ -25,6 +25,7 @@
 ### API:
 * Django Rest Framework
 * QuerySet filtering (django-filter)
+* Automatic Swagger/OpenAPI documentation (django-rest-swagger)
 
 ### Authentication:
 * Rest endpoints (django-rest-auth)

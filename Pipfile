@@ -19,6 +19,7 @@ logutils = "*"
 django-oauth-toolkit = "*"
 django-cors-headers = "*"
 django-model-utils = "*"
+django-rest-swagger = "*"
 
 [dev-packages]
 "flake8" = "*"

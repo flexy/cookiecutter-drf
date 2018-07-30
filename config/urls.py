@@ -3,14 +3,22 @@ from django.urls import path, include, reverse_lazy
 from django.views.generic.base import RedirectView
 from django.contrib import admin
 
+from rest_framework_swagger.views import get_swagger_view
+
 from api.v1.routers import router as v1_router
 
+
+schema_view = get_swagger_view(title='cookiecutter-drf API')
 
 urlpatterns = [
     # API
     path(
         'api/v1/',
         include(v1_router.urls),
+    ),
+    path(
+        'api/swagger/',
+        schema_view
     ),
 
     # Authentication

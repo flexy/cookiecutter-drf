@@ -28,6 +28,7 @@ class BaseConfiguration(Configuration):
         'allauth.account',
         'oauth2_provider',
         'corsheaders',
+        'rest_framework_swagger',
     ]
     DJANGO_APPS = [
         'django.contrib.auth',
