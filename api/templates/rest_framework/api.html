@@ -1,0 +1,13 @@
+{% extends "rest_framework/base.html" %}
+
+{% block userlinks %}
+
+  <li>
+    <a href="{% url 'swagger' %}">
+      Swagger
+    </a>
+  </li>
+
+  {{ block.super }}
+
+{% endblock userlinks %}
