@@ -140,8 +140,10 @@ class BaseConfiguration(Configuration):
         },
     ]
 
-    # Custom user
+    # Custom authentication
     AUTH_USER_MODEL = 'users.User'
+    LOGIN_URL = 'rest_framework:login'
+    LOGOUT_URL = 'rest_framework:logout'
 
     # Authentication
     AUTHENTICATION_BACKENDS = (
