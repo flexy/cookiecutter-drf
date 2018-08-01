@@ -33,14 +33,16 @@ urlpatterns = [
         'auth/',
         include('rest_framework.urls')
     ),
+
     path(
         'api/v1/auth/',
-        include('rest_auth.urls'),
+        include('djoser.urls'),
     ),
     path(
-        'api/v1/auth/registration/',
-        include('rest_auth.registration.urls'),
+        'api/v1/auth/',
+        include('djoser.urls.authtoken'),
     ),
+
     path(
         'api/v1/oauth/',
         include(

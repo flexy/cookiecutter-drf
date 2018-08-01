@@ -28,11 +28,10 @@
 * Automatic Swagger/OpenAPI documentation (django-rest-swagger)
 
 ### Authentication:
-* Rest endpoints (django-rest-auth)
-* OAuth2 support (django-oauth-toolkit)
-* Social authentication (django-allauth)
 * Custom user model
-* Login with email instead of username
+* Authentication endpoints (djoser)
+* Social authentication (social-auth-app-django)
+* OAuth2 support (django-oauth-toolkit)
 
 ### Testing:
 * pytest with pytest-django
@@ -44,6 +43,11 @@
 
 ### Continuous Deployment:
 * Heroku
+
+
+## Upcoming Features:
+* Email verification
+* Better permissions
 
 
 ## Usage

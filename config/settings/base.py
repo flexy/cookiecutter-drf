@@ -21,11 +21,9 @@ class BaseConfiguration(Configuration):
     THIRD_PARTY_APPS = [
         'rest_framework',
         'rest_framework.authtoken',
+        'djoser',
+        'social_django',
         'django_filters',
-        'rest_auth',
-        'rest_auth.registration',
-        'allauth',
-        'allauth.account',
         'oauth2_provider',
         'corsheaders',
         'rest_framework_swagger',
@@ -139,13 +137,12 @@ class BaseConfiguration(Configuration):
         },
     ]
 
+    # Custom user
+    AUTH_USER_MODEL = 'users.User'
+
     # Authentication
     AUTHENTICATION_BACKENDS = (
-        # Needed to login by username in Django admin, regardless of `allauth`
         'django.contrib.auth.backends.ModelBackend',
-
-        # `allauth` specific authentication methods, such as login by e-mail
-        'allauth.account.auth_backends.AuthenticationBackend',
     )
 
     # django-oauth-toolkit
@@ -153,19 +150,15 @@ class BaseConfiguration(Configuration):
         'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',  # noqa
     }
 
-    # django-allauth
-    ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-    ACCOUNT_EMAIL_REQUIRED = True
-    ACCOUNT_USERNAME_REQUIRED = False
-    ACCOUNT_AUTHENTICATION_METHOD = 'email'
-
-    # django-rest-auth
-    REST_AUTH_SERIALIZERS = {
-        'USER_DETAILS_SERIALIZER': 'api.users.serializers.UserDetailsSerializer',  # noqa
+    # djoser
+    DJOSER = {
+        'SERIALIZERS': {
+            'user': 'api.users.serializers.UserSerializer',
+        }
     }
 
-    # Custom user
-    AUTH_USER_MODEL = 'users.User'
+    # http://python-social-auth.readthedocs.io/en/latest/configuration/django.html#database
+    SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
     # Django Rest Framework
     REST_FRAMEWORK = {
