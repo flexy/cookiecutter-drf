@@ -1,5 +1,13 @@
 {% extends "rest_framework/base.html" %}
 
+{% block branding %}
+
+<a class="navbar-brand" href="{% url 'api-v1:api-root' %}">
+  cookiecutter-drf
+</a>
+
+{% endblock branding %}
+
 {% block userlinks %}
 
   <li>

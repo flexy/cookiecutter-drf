@@ -11,10 +11,16 @@ from api.v1.routers import router as v1_router
 swagger_view = get_swagger_view(title='cookiecutter-drf API')
 
 urlpatterns = [
-    # API
+    # API V1
     path(
         'api/v1/',
-        include(v1_router.urls),
+        include(
+            (
+                v1_router.urls,
+                'v1',
+            ),
+            namespace='api-v1',
+        ),
     ),
     path(
         'api/swagger/',
@@ -39,7 +45,7 @@ urlpatterns = [
         'api/v1/oauth/',
         include(
             'oauth2_provider.urls',
-            namespace='oauth2_provider',
+            namespace='oauth2-provider',
         ),
     ),
 
@@ -51,7 +57,7 @@ urlpatterns = [
     path(
         '',
         RedirectView.as_view(
-            url=reverse_lazy('api-root'),
+            url=reverse_lazy('api-v1:api-root'),
             permanent=False,
         ),
     ),
