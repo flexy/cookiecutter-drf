@@ -23,11 +23,15 @@ urlpatterns = [
 
     # Authentication
     path(
-        'api/v1/api-auth/',
+        'auth/',
+        include('rest_framework.urls')
+    ),
+    path(
+        'api/v1/auth/',
         include('rest_auth.urls'),
     ),
     path(
-        'api/v1/api-auth/registration/',
+        'api/v1/auth/registration/',
         include('rest_auth.registration.urls'),
     ),
     path(
