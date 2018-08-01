@@ -38,6 +38,16 @@
     </a>
   </li>
 
+  {% if user.is_superuser %}
+
+  <li>
+    <a href="{% url 'admin:index' %}">
+      Admin
+    </a>
+  </li>
+
+  {% endif %}
+
   {{ block.super }}
 
 {% endblock userlinks %}
