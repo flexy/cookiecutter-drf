@@ -157,6 +157,11 @@ class BaseConfiguration(Configuration):
     ACCOUNT_USERNAME_REQUIRED = False
     ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
+    # django-rest-auth
+    REST_AUTH_SERIALIZERS = {
+        'USER_DETAILS_SERIALIZER': 'api.users.serializers.UserDetailsSerializer',  # noqa
+    }
+
     # Custom user
     AUTH_USER_MODEL = 'users.User'
 
