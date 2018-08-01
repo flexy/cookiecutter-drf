@@ -65,6 +65,7 @@ urlpatterns = [
             url=reverse_lazy('api-v1:api-root'),
             permanent=False,
         ),
+        name='root',
     ),
 ]
 
