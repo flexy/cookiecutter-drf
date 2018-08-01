@@ -61,8 +61,7 @@ Add the following environment variables to your Travis project settings:
 # OAuth Setup
 1. Visit the project in your web browser: http://localhost:8000/
 2. Login with an admin user.
-3. Register a new OAuth application:
-  * Visit the application registration endpoint: http://localhost:8000/api/v1/oauth/applications/register/
+3. Register a new application via the OAuth application endpoint: http://localhost:8000/api/v1/auth/oauth/applications/
 
 
 # Other Tasks

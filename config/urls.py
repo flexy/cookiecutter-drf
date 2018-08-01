@@ -42,12 +42,15 @@ urlpatterns = [
         'api/v1/auth/',
         include('djoser.urls.authtoken'),
     ),
-
     path(
-        'api/v1/oauth/',
+        'api/v1/auth/oauth/',
+        include('rest_framework_social_oauth2.urls'),
+    ),
+    path(
+        'api/v1/auth/oauth/',
         include(
             'oauth2_provider.urls',
-            namespace='oauth2-provider',
+            namespace='oauth2_provider',
         ),
     ),
 

@@ -20,6 +20,7 @@ django-model-utils = "*"
 django-rest-swagger = "*"
 djoser = "*"
 social-auth-app-django = "*"
+"django-rest-framework-social-oauth2" = "*"
 
 [dev-packages]
 "flake8" = "*"

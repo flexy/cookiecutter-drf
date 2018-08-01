@@ -30,8 +30,7 @@
 ### Authentication:
 * Custom user model
 * Authentication endpoints (djoser)
-* Social authentication (social-auth-app-django)
-* OAuth2 support (django-oauth-toolkit)
+* Social authentication and OAuth2 (social-auth-app-django, django-oauth-toolkit, django-rest-framework-social-oauth2)
 
 ### Testing:
 * pytest with pytest-django
