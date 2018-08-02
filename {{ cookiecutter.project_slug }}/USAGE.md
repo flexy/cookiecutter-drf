@@ -17,7 +17,6 @@
   ```
   DJANGO_ALLOWED_HOSTS=*
   DJANGO_SECRET_KEY=local
-  DJANGO_CORS_ORIGIN_WHITELIST=(localhost:8080)
   ```
 
 4. Run the project:

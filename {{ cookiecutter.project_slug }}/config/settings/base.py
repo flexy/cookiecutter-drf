@@ -77,12 +77,15 @@ class BaseConfiguration(Configuration):
     APPEND_SLASH = True
 
     # https://docs.djangoproject.com/en/2.0/ref/settings/#allowed-hosts
-    ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=[])
+    ALLOWED_HOSTS = env.list(
+        'DJANGO_ALLOWED_HOSTS',
+        default=[],
+    )
 
     # CORS: https://github.com/ottoyiu/django-cors-headers
-    CORS_ORIGIN_WHITELIST = env.tuple(
+    CORS_ORIGIN_WHITELIST = env.list(
         'DJANGO_CORS_ORIGIN_WHITELIST',
-        default=()
+        default=[]
     )
 
     # https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
@@ -146,10 +149,10 @@ class BaseConfiguration(Configuration):
     LOGOUT_URL = 'rest_framework:logout'
 
     # Authentication
-    AUTHENTICATION_BACKENDS = (
+    AUTHENTICATION_BACKENDS = [
        'rest_framework_social_oauth2.backends.DjangoOAuth2',
        'django.contrib.auth.backends.ModelBackend',
-    )
+    ]
 
     # django-oauth-toolkit
     OAUTH2_PROVIDER = {
@@ -180,25 +183,25 @@ class BaseConfiguration(Configuration):
 
         'DEFAULT_PAGINATION_CLASS':
             'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
-        'DEFAULT_PARSER_CLASSES': (
+        'DEFAULT_PARSER_CLASSES': [
             'rest_framework_json_api.parsers.JSONParser',
             'rest_framework.parsers.FormParser',
             'rest_framework.parsers.MultiPartParser',
-        ),
-        'DEFAULT_RENDERER_CLASSES': (
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
             'rest_framework_json_api.renderers.JSONRenderer',
             'rest_framework.renderers.JSONRenderer',
             'rest_framework.renderers.BrowsableAPIRenderer',
-        ),
+        ],
         'DEFAULT_PERMISSION_CLASSES': [
             'rest_framework.permissions.IsAuthenticated',
         ],
-        'DEFAULT_AUTHENTICATION_CLASSES': (
+        'DEFAULT_AUTHENTICATION_CLASSES': [
             'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
             'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
             'rest_framework_social_oauth2.authentication.SocialAuthentication',
-        ),
+        ],
         'DEFAULT_METADATA_CLASS':
             'rest_framework_json_api.metadata.JSONAPIMetadata',
     }
