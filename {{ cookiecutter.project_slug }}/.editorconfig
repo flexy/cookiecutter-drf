@@ -14,7 +14,7 @@ indent_size = 4
 
 [*.py]
 line_length=120
-known_first_party=fndrz_template
+known_first_party=api
 multi_line_output=3
 default_section=THIRDPARTY
 
