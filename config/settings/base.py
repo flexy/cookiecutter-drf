@@ -168,15 +168,25 @@ class BaseConfiguration(Configuration):
 
     # Django Rest Framework
     REST_FRAMEWORK = {
-        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # noqa
+        'DATETIME_FORMAT': '%Y-%m-%dT%H:%M:%S%z',
+        'EXCEPTION_HANDLER':
+            'rest_framework_json_api.exceptions.exception_handler',
         'PAGE_SIZE': int(
             env(
                 'DJANGO_PAGINATION_LIMIT',
                 default=10,
             )
         ),
-        'DATETIME_FORMAT': '%Y-%m-%dT%H:%M:%S%z',
+
+        'DEFAULT_PAGINATION_CLASS':
+            'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
+        'DEFAULT_PARSER_CLASSES': (
+            'rest_framework_json_api.parsers.JSONParser',
+            'rest_framework.parsers.FormParser',
+            'rest_framework.parsers.MultiPartParser',
+        ),
         'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework_json_api.renderers.JSONRenderer',
             'rest_framework.renderers.JSONRenderer',
             'rest_framework.renderers.BrowsableAPIRenderer',
         ),
@@ -188,5 +198,7 @@ class BaseConfiguration(Configuration):
             'rest_framework.authentication.TokenAuthentication',
             'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
             'rest_framework_social_oauth2.authentication.SocialAuthentication',
-        )
+        ),
+        'DEFAULT_METADATA_CLASS':
+            'rest_framework_json_api.metadata.JSONAPIMetadata',
     }
