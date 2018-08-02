@@ -1,4 +1,4 @@
-# cookiecutter-drf Usage
+# {{ cookiecutter.project_name }} Usage
 
 
 ## Setup

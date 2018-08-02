@@ -1,0 +1,10 @@
+{
+  "project_name": "cookiecutter-drf",
+  "project_slug": "{{ cookiecutter.project_name.lower()|replace(' ', '_')|replace('-', '_') }}",
+  "project_version": "0.1.0",
+  "use_heroku": false,
+  "_copy_without_render": [
+      "*.html",
+      "*.js"
+  ]
+}

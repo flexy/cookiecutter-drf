@@ -1,0 +1,35 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gunicorn = "*"
+newrelic = "*"
+django = "==2.0"
+"psycopg2-binary" = "*"
+whitenoise = "*"
+django-environ = "*"
+django-configurations = "*"
+django-filter = "*"
+djangorestframework = "*"
+logutils = "*"
+django-oauth-toolkit = "*"
+django-cors-headers = "*"
+django-model-utils = "*"
+django-rest-swagger = "*"
+djoser = "*"
+social-auth-app-django = "*"
+"django-rest-framework-social-oauth2" = "*"
+djangorestframework-jsonapi = "*"
+
+[dev-packages]
+"flake8" = "*"
+pytest = "*"
+pytest-django = "*"
+django-rest-assured = "*"
+factory-boy = "*"
+django-debug-toolbar = "*"
+
+[requires]
+python_version = "3.7"

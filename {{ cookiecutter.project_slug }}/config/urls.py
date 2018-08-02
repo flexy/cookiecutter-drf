@@ -8,7 +8,7 @@ from rest_framework_swagger.views import get_swagger_view
 from api.v1.routers import router as v1_router
 
 
-swagger_view = get_swagger_view(title='cookiecutter-drf API')
+swagger_view = get_swagger_view(title='{{ cookiecutter.project_name }} API')
 
 urlpatterns = [
     # API V1

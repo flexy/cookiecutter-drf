@@ -9,29 +9,13 @@ cache: pip
 services:
 - docker
 
-jobs:
-  include:
-  - stage: test
-    before_install: bash travis/before_install.sh
-    install: true
-    script: bash travis/test.sh
+install:
+  - pip install pipenv
+  - pipenv install --dev --system --deploy --ignore-pipfile
 
-  - stage: deploy
-    if: env(DEPLOY_DEV_ENABLED) = true AND branch = env(DEPLOY_DEV_BRANCH)
-    install: true
-    script: skip
-    deploy:
-      provider: script
-      script: bash travis/deploy_dev.sh
-      on:
-        branch: develop
+before_script:
+  - cookiecutter . --no-input
+  - cd cookiecutter_drf
+  - bash travis/before_install.sh
 
-  - stage: deploy
-    if: env(DEPLOY_PROD_ENABLED) = true AND branch = env(DEPLOY_PROD_BRANCH)
-    install: true
-    script: skip
-    deploy:
-      provider: script
-      script: bash travis/deploy_prod.sh
-      on:
-        branch: master
+script: bash travis/test.sh
