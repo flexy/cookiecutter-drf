@@ -4,30 +4,30 @@
 ## Setup
 
 1. Install dependencies:
-  ```bash
-  pipenv install
-  ```
+```bash
+pipenv install
+```
 
 2. Launch the project environment:
-  ```bash
-  pipenv shell
-  ```
+```bash
+pipenv shell
+```
 
 3. Create an environment configuration file (.env) with the following contents:
-  ```
-  DJANGO_ALLOWED_HOSTS=*
-  DJANGO_SECRET_KEY=local
-  ```
+```
+DJANGO_ALLOWED_HOSTS=*
+DJANGO_SECRET_KEY=local
+```
 
 4. Run the project:
-  ```bash
-  docker-compose up
-  ```
+```bash
+docker-compose up
+```
 
 5. In a new shell, create a super user:
-  ```bash
-  docker-compose run --rm web ./manage.py createsuperuser
-  ```
+```bash
+docker-compose run --rm web ./manage.py createsuperuser
+```
 
 
 # Travis CI Setup
@@ -65,16 +65,16 @@ Add the following environment variables to your Travis project settings:
 
 # Other Tasks
 * Build the project:
-  ```bash
-  docker-compose build
-  ```
+```bash
+docker-compose build
+```
 
 * Run a command inside Docker:
-  ```bash
-  docker-compose run --rm web <command>
-  ```
+```bash
+docker-compose run --rm web <command>
+```
 
 * Destroy the project's Docker containers, networks, volumes, and images:
-  ```bash
-  docker-compose down
-  ```
+```bash
+docker-compose down
+```
