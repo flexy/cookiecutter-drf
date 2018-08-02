@@ -43,7 +43,7 @@
 * Heroku
 
 
-## Upcoming Features:
+## Upcoming Features
 * Email verification
 * Better permissions
 
