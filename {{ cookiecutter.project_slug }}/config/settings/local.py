@@ -6,25 +6,13 @@ class Local(BaseConfiguration):
     # Debug
     DEBUG = True
 
-    # Apps
-    INSTALLED_APPS = BaseConfiguration.INSTALLED_APPS
-    INSTALLED_APPS += [
-        'debug_toolbar',
-    ]
-
-    # Middleware
-    MIDDLEWARE = BaseConfiguration.MIDDLEWARE
-    MIDDLEWARE = [
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
-    ] + MIDDLEWARE
-
     # https://docs.djangoproject.com/en/dev/ref/settings/#internal-ips
     INTERNAL_IPS = [
         '127.0.0.1',
     ]
 
     # Check if we are inside a Docker container
-    if BaseConfiguration.env('USING_DOCKER') == 'true':
+    if BaseConfiguration.env.bool('USING_DOCKER'):
         import socket
 
         # Add the container IP to INTERNAL_IPS

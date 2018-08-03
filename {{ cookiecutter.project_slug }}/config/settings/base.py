@@ -28,6 +28,7 @@ class BaseConfiguration(Configuration):
         'django_filters',
         'corsheaders',
         'rest_framework_swagger',
+        'debug_toolbar',
     ]
     DJANGO_APPS = [
         'django.contrib.auth',
@@ -44,6 +45,7 @@ class BaseConfiguration(Configuration):
 
     # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'corsheaders.middleware.CorsMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
