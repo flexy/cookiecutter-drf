@@ -23,8 +23,6 @@ jobs:
     deploy:
       provider: script
       script: bash travis/deploy_dev.sh
-      on:
-        branch: develop
 
   - stage: deploy
     if: env(DEPLOY_PROD_ENABLED) = true AND branch = env(DEPLOY_PROD_BRANCH)
@@ -33,5 +31,3 @@ jobs:
     deploy:
       provider: script
       script: bash travis/deploy_prod.sh
-      on:
-        branch: master
