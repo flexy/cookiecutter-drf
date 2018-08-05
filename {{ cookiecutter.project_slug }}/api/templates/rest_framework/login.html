@@ -1,10 +1,10 @@
-{% extends "rest_framework/login_base.html" %}
+{% raw %}{% extends "rest_framework/login_base.html" %}
 
 
 {% block branding %}
 
     <h3 style="margin: 0 0 20px;">
-      cookiecutter-drf
+      {% endraw %}{{ cookiecutter.project_name }}{% raw %}
     </h3>
 
-{% endblock branding %}
+{% endblock branding %}{% endraw %}

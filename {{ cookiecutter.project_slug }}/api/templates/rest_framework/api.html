@@ -1,11 +1,11 @@
-{% extends "rest_framework/base.html" %}
+{% raw %}{% extends "rest_framework/base.html" %}
 
 {% load static %}
 
 
 {% block title %}
 
-  {% if name %}{{ name }} – {% endif %} cookiecutter-drf
+  {% if name %}{{ name }} – {% endif %} {% endraw %}{{ cookiecutter.project_name }}{% raw %}
 
 {% endblock title %}
 
@@ -24,7 +24,7 @@
 {% block branding %}
 
 <a class="navbar-brand" href="{% url 'root' %}">
-  cookiecutter-drf
+  {% endraw %}{{ cookiecutter.project_name }}{% raw %}
 </a>
 
 {% endblock branding %}
@@ -50,4 +50,4 @@
 
   {{ block.super }}
 
-{% endblock userlinks %}
+{% endblock userlinks %}{% endraw %}
