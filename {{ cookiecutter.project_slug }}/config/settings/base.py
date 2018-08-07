@@ -61,7 +61,10 @@ class BaseConfiguration(Configuration):
 
     # GENERAL
     # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-    DEBUG = env.bool('DJANGO_DEBUG', False)
+    DEBUG = env.bool(
+        'DJANGO_DEBUG',
+        default=False,
+    )
 
     # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
     USE_TZ = True
@@ -174,8 +177,9 @@ class BaseConfiguration(Configuration):
     # Django Rest Framework
     REST_FRAMEWORK = {
         'DATETIME_FORMAT': '%Y-%m-%dT%H:%M:%S%z',
-        'EXCEPTION_HANDLER':
-            'rest_framework_json_api.exceptions.exception_handler',
+
+        'DEFAULT_PAGINATION_CLASS':
+            'rest_framework.pagination.PageNumberPagination',
         'PAGE_SIZE': int(
             env(
                 'DJANGO_PAGINATION_LIMIT',
@@ -183,27 +187,17 @@ class BaseConfiguration(Configuration):
             )
         ),
 
-        'DEFAULT_PAGINATION_CLASS':
-            'rest_framework_json_api.pagination.JsonApiPageNumberPagination',
-        'DEFAULT_PARSER_CLASSES': [
-            'rest_framework_json_api.parsers.JSONParser',
-            'rest_framework.parsers.FormParser',
-            'rest_framework.parsers.MultiPartParser',
-        ],
-        'DEFAULT_RENDERER_CLASSES': [
-            'rest_framework_json_api.renderers.JSONRenderer',
-            'rest_framework.renderers.JSONRenderer',
-            'rest_framework.renderers.BrowsableAPIRenderer',
-        ],
-        'DEFAULT_PERMISSION_CLASSES': [
-            'rest_framework.permissions.IsAuthenticated',
-        ],
         'DEFAULT_AUTHENTICATION_CLASSES': [
             'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
             'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
             'rest_framework_social_oauth2.authentication.SocialAuthentication',
         ],
-        'DEFAULT_METADATA_CLASS':
-            'rest_framework_json_api.metadata.JSONAPIMetadata',
+        'DEFAULT_PERMISSION_CLASSES': [
+            'rest_framework.permissions.IsAuthenticated',
+        ],
+        'DEFAULT_RENDERER_CLASSES': [
+            'rest_framework.renderers.JSONRenderer',
+            'rest_framework.renderers.BrowsableAPIRenderer',
+        ],
     }

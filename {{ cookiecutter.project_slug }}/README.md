@@ -24,7 +24,6 @@
 * Django Rest Framework
 * QuerySet filtering (django-filter)
 * Automatic Swagger/OpenAPI documentation (django-rest-swagger)
-* [JSON API](http://jsonapi.org/) support (djangorestframework-jsonapi)
 
 ### Authentication:
 * Custom user model
