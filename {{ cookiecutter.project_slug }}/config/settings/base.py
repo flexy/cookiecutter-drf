@@ -14,9 +14,9 @@ class BaseConfiguration(Configuration):
 
     # Apps
     LOCAL_APPS = [
+        'api.api',
         'api.users',
         'api.utils',
-        'api.v1',
     ]
     THIRD_PARTY_APPS = [
         'rest_framework',
@@ -200,4 +200,8 @@ class BaseConfiguration(Configuration):
             'rest_framework.renderers.JSONRenderer',
             'rest_framework.renderers.BrowsableAPIRenderer',
         ],
+
+        'DEFAULT_VERSIONING_CLASS':
+            'rest_framework.versioning.AcceptHeaderVersioning',
+        'DEFAULT_VERSION': '1.0',
     }
