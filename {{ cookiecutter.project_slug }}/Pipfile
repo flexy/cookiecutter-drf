@@ -28,6 +28,7 @@ django-debug-toolbar = "*"
 "flake8" = "*"
 pytest = "*"
 pytest-django = "*"
+pytest-mock = "*"
 django-rest-assured = "*"
 factory-boy = "*"
 
