@@ -1,5 +1,4 @@
 import pytest
-import builtins
 
 from ..versions.viewsets import VersionMixin
 
@@ -40,23 +39,27 @@ class TestVersionMixin():
         instance.request.version = '1.0'
         instance.filterset_classes['1.0'] = filterset_1
 
-        instance._get_versioned_class('filterset_classes') == filterset_1
+        result = instance._get_versioned_class('filterset_classes')
+        assert result == filterset_1
 
         # Default, version not specified
         instance.request.version = None
         instance.filterset_classes['default'] = filterset_default
 
-        assert instance._get_versioned_class('filterset_classes') == filterset_default
+        result = instance._get_versioned_class('filterset_classes')
+        assert result == filterset_default
 
         # Default, version not found
         instance.request.version = '100.0'
 
-        assert instance._get_versioned_class('filterset_classes') == filterset_default
+        result = instance._get_versioned_class('filterset_classes')
+        assert result == filterset_default
 
         # Default, version specified
         instance.request.version = '1.0'
 
-        assert instance._get_versioned_class('filterset_classes') == filterset_1
+        result = instance._get_versioned_class('filterset_classes')
+        assert result == filterset_1
 
     def test_get_filterset_class(self, mocker):
         instance = self._setup(mocker)
@@ -77,7 +80,8 @@ class TestVersionMixin():
         with pytest.raises(AttributeError) as error_info:
             instance.get_filterset_class()
 
-        assert error_info.value.args[0] == "'super' object has no attribute 'get_filterset_class'"
+        assert error_info.value.args[0] == \
+            "'super' object has no attribute 'get_filterset_class'"
 
     def test_get_serializer_class(self, mocker):
         instance = self._setup(mocker)
@@ -98,4 +102,5 @@ class TestVersionMixin():
         with pytest.raises(AttributeError) as error_info:
             instance.get_serializer_class()
 
-        assert error_info.value.args[0] == "'super' object has no attribute 'get_serializer_class'"
+        assert error_info.value.args[0] == \
+            "'super' object has no attribute 'get_serializer_class'"
