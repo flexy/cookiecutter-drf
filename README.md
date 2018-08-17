@@ -8,7 +8,7 @@
 * Containerized (Docker)
 * Dependency and python version management (Pipenv)
 * Python 3.7
-* Django 2.0
+* Django 2.1
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)
@@ -19,7 +19,6 @@
 * Django Rest Framework
 * QuerySet filtering (django-filter)
 * Automatic Swagger/OpenAPI documentation (django-rest-swagger)
-* [JSON API](http://jsonapi.org/) support (djangorestframework-jsonapi)
 
 ### Authentication:
 * Custom user model

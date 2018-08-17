@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 gunicorn = "*"
 newrelic = "*"
-django = "==2.0"
+django = "*"
 "psycopg2-binary" = "*"
 whitenoise = "*"
 django-environ = "*"

@@ -13,7 +13,7 @@
 * Containerized (Docker)
 * Dependency and python version management (Pipenv)
 * Python 3.7
-* Django 2.0
+* Django 2.1
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)
