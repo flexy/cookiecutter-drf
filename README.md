@@ -2,6 +2,16 @@
 [![Build Status](https://travis-ci.com/fndrz/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/fndrz/cookiecutter-drf)
 
 
+## Getting Started
+
+1. [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+
+2. Generate your project from cookiecutter-drf:
+```bash
+cookiecutter gh:fndrz/cookiecutter-drf
+```
+
+
 ## Features
 
 ### Architecture:
@@ -40,13 +50,3 @@
 ## Upcoming Features
 * Email verification
 * Better permissions
-
-
-## Getting Started
-
-1. [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
-
-2. Generate your project from cookiecutter-drf:
-```bash
-cookiecutter gh:fndrz/cookiecutter-drf
-```
