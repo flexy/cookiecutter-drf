@@ -40,6 +40,8 @@ docker-compose run --rm web ./manage.py createsuperuser
 
 
 # Continuous Deployment Setup
+> Note: To allow a deployment to go live on Heroku, run:
+> `heroku container:release web --app <app_slug>`
 
 Add the following environment variables to your Travis project settings:
 
