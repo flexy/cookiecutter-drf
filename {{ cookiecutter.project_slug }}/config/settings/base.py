@@ -28,7 +28,6 @@ class BaseConfiguration(Configuration):
         'django_filters',
         'corsheaders',
         'rest_framework_swagger',
-        'debug_toolbar',
     ]
     DJANGO_APPS = [
         'django.contrib.auth',

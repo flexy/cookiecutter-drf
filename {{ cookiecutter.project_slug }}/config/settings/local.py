@@ -3,6 +3,12 @@ from .base import BaseConfiguration
 
 class Local(BaseConfiguration):
 
+    # Apps
+    INSTALLED_APPS = BaseConfiguration.INSTALLED_APPS
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
     # Debug
     DEBUG = True
 
