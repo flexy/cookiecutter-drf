@@ -1,0 +1,24 @@
+{% raw %}{% extends "drf-yasg/swagger-ui.html" %}
+
+
+{% block user_context_message %}
+
+  {{ block.super }}
+
+  <div class="btn authorize">
+    <a class="header__btn" href="{% url 'api:schema-redoc' %}">
+      ReDoc
+    </a>
+  </div>
+
+  {% if request.user.is_superuser %}
+
+  <div class="btn authorize">
+    <a class="header__btn" href="{% url 'admin:index' %}">
+      Admin
+    </a>
+  </div>
+
+  {% endif %}
+
+{% endblock user_context_message %}{% endraw %}

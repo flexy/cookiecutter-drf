@@ -27,8 +27,10 @@ cookiecutter gh:fndrz/cookiecutter-drf
 
 ### API:
 * Django Rest Framework
+* Swagger UI (drf-yasg)
+* Redoc UI (drf-yasg)
+* OpenAPI schema (drf-yasg)
 * QuerySet filtering (django-filter)
-* Swagger/OpenAPI documentation (drf-yasg)
 
 ### Authentication:
 * Custom user model

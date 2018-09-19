@@ -9,7 +9,7 @@ urlpatterns = [
     path(
         '',
         RedirectView.as_view(
-            url=reverse_lazy('api:api-root'),
+            url=reverse_lazy('api:schema-swagger-ui'),
             permanent=False,
         ),
         name='root',
