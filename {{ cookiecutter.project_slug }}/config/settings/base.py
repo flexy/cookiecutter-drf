@@ -27,7 +27,7 @@ class BaseConfiguration(Configuration):
         'rest_framework_social_oauth2',
         'django_filters',
         'corsheaders',
-        'rest_framework_swagger',
+        'drf_yasg',
     ]
     DJANGO_APPS = [
         'django.contrib.auth',
@@ -170,8 +170,10 @@ class BaseConfiguration(Configuration):
         }
     }
 
+    # Django Rest Framework Social OAuth2
     # http://python-social-auth.readthedocs.io/en/latest/configuration/django.html#database
     SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+    DRFSO2_URL_NAMESPACE = 'api'
 
     # Django Rest Framework
     REST_FRAMEWORK = {
