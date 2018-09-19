@@ -38,6 +38,7 @@
 * Factories (factory-boy)
 * django-debug-toolbar available locally
 * Code quality (Flake8)
+* Code coverage (pytest-cov)
 * CI integration (Travis CI)
 
 ### Continuous Deployment:

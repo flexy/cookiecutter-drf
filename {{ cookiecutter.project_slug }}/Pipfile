@@ -28,6 +28,7 @@ drf-yasg = {version = "*", extras = ["validation"]}
 pytest = "*"
 pytest-django = "*"
 pytest-mock = "*"
+pytest-cov = "*"
 django-rest-assured = "*"
 factory-boy = "*"
 django-debug-toolbar = "*"

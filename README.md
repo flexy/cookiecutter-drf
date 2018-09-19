@@ -1,5 +1,6 @@
 # cookiecutter-drf
 [![Build Status](https://travis-ci.com/fndrz/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/fndrz/cookiecutter-drf)
+[![codecov](https://codecov.io/gh/fndrz/cookiecutter-drf/branch/master/graph/badge.svg?token=aG2CYaPmQ0)](https://codecov.io/gh/fndrz/cookiecutter-drf)
 
 
 ## Getting Started
@@ -43,6 +44,7 @@ cookiecutter gh:fndrz/cookiecutter-drf
 * Factories (factory-boy)
 * django-debug-toolbar available locally
 * Code quality (Flake8)
+* Code coverage (pytest-cov)
 * CI integration (Travis CI)
 
 ### Continuous Deployment:

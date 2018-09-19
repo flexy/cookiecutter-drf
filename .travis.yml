@@ -19,3 +19,6 @@ before_script:
   - bash travis/before_install.sh
 
 script: bash travis/test.sh
+
+after_success:
+  - codecov

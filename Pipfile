@@ -8,6 +8,7 @@ cookiecutter = "*"
 
 [dev-packages]
 cookiecutter = "*"
+codecov = "*"
 
 [requires]
 python_version = "3.7"
