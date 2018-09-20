@@ -1,9 +1,7 @@
 from django.urls import path, re_path, include
 from rest_framework.routers import DefaultRouter
-from rest_framework import permissions
 
-from drf_yasg.views import get_schema_view
-from drf_yasg import openapi
+from .schema import schema_view
 
 
 # Extend this router with your own routes
@@ -39,19 +37,7 @@ app_urls = [
 ]
 
 
-# Schema configuration
-schema_view = get_schema_view(
-   openapi.Info(
-      title='{{ cookiecutter.project_name }}',
-      default_version='{{ cookiecutter.project_version }}',
-   ),
-   validators=['flex', 'ssv'],
-   public=False,
-   patterns=app_urls,
-   permission_classes=(
-       permissions.AllowAny,
-   ),
-)
+# Schema URL configuration
 schema_urls = [
     # Swagger
     re_path(
