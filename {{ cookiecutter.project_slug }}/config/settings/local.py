@@ -18,7 +18,7 @@ class Local(BaseConfiguration):
     ]
 
     # Check if we are inside a Docker container
-    if BaseConfiguration.env.bool('USING_DOCKER'):
+    if BaseConfiguration.env.bool('USING_DOCKER', False):
         import socket
 
         # Add the container IP to INTERNAL_IPS
