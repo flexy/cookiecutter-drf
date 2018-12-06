@@ -23,6 +23,8 @@ jobs:
     deploy:
       provider: script
       script: bash travis/deploy_dev.sh
+      on:
+        all_branches: true
 
   - stage: deploy
     if: env(DEPLOY_PROD_ENABLED) = true AND branch = env(DEPLOY_PROD_BRANCH)
@@ -31,3 +33,5 @@ jobs:
     deploy:
       provider: script
       script: bash travis/deploy_prod.sh
+      on:
+        all_branches: true
