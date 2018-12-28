@@ -66,17 +66,24 @@ Add the following environment variables to your Travis project settings:
 
 
 # Other Tasks
-* Build the project:
+## Build Docker
+This is required after every dependency change.
 ```bash
 docker-compose build
 ```
 
-* Run a command inside Docker:
+## Run a command inside Docker
 ```bash
 docker-compose run --rm web <command>
 ```
 
-* Destroy the project's Docker containers, networks, volumes, and images:
+## Destroy Docker
+This destroys the project's Docker containers, networks, volumes, and images.
 ```bash
 docker-compose down
+```
+
+## Run PSQL
+```bash
+docker-compose run --rm postgres psql postgres://postgres:@postgres:5432/postgres
 ```
