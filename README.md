@@ -4,9 +4,7 @@
 
 
 ## Getting Started
-
 1. [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
-
 2. Generate your project from cookiecutter-drf:
 ```bash
 cookiecutter gh:fndrz/cookiecutter-drf
@@ -14,12 +12,12 @@ cookiecutter gh:fndrz/cookiecutter-drf
 
 
 ## Features
-
 ### Architecture:
 * Containerized (Docker)
 * Dependency and python version management (Pipenv)
 * Python 3.7
 * Django 2.1
+* Web server: Gunicorn + Uvicorn 
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)
@@ -54,3 +52,10 @@ cookiecutter gh:fndrz/cookiecutter-drf
 ## Upcoming Features
 * Email verification
 * Better permissions
+
+
+## Development
+### Generate the project
+```bash
+cookiecutter . --no-input --overwrite-if-exists
+```

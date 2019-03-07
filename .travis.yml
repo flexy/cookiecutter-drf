@@ -16,9 +16,9 @@ install:
 before_script:
   - cookiecutter . --no-input
   - cd cookiecutter_drf
-  - bash travis/before_install.sh
+  - bash scripts/travis/before_install.sh
 
-script: bash travis/test.sh
+script: bash scripts/travis/test.sh
 
 after_success:
   - codecov

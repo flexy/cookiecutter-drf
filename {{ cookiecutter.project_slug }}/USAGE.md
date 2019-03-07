@@ -1,8 +1,5 @@
 # {{ cookiecutter.project_name }} Usage
-
-
 ## Setup
-
 1. Install dependencies:
 ```bash
 pipenv install
@@ -13,70 +10,85 @@ pipenv install
 pipenv shell
 ```
 
-3. Create an environment configuration file (.env) with the following contents:
+3. Initialize [pre-commit](https://pre-commit.com/):
+```bash
+pre-commit install
+```
+
+4. Create an environment configuration file (.env) with the following contents:
 ```
 DJANGO_ALLOWED_HOSTS=*
 DJANGO_SECRET_KEY=local
 ```
 
-4. Run the project:
+5. Run the project:
 ```bash
 docker-compose up
 ```
 
-5. In a new shell, create a super user:
+6. In a new shell, create a super user:
 ```bash
 docker-compose run --rm web ./manage.py createsuperuser
 ```
 
 
-# Travis CI Setup
+### Travis CI Setup
 1. Enable the repository on Travis CI: [read their tutorial](https://docs.travis-ci.com/user/getting-started/).
 2. In the Travis project settings, set the following environment variables:
 
 | Key | Value |
 | --- | --- |
+| ENVIRONMENT_NAME | `'test'` |
 | DJANGO_SECRET_KEY | A unique, unpredictable value |
+| DJANGO_CONFIGURATION | '`config.settings.test`' |
+| DJANGO_SETTINGS_MODULE | '`Test`' |
 
 
-# Continuous Deployment Setup
-> Note: To allow a deployment to go live on Heroku, run:
-> `heroku container:release web --app <app_slug>`
-
-Add the following environment variables to your Travis project settings:
+### Heroku Setup
+Add the following config vars to your Heroku instance:
 
 | Key | Value |
 | --- | --- |
-| DEPLOY_DEV_ENABLED | `true` (`false` to explicitly disable) |
-| DEPLOY_DEV_BRANCH | `develop` (or your dev branch) |
-| DEPLOY_DEV_REGISTRY_URL | `registry.heroku.com` |
-| DEPLOY_DEV_APP_URL | `registry.heroku.com/<Heroku Dev App Slug>/web` |
-| DEPLOY_PROD_ENABLED | `true` (`false` to explicitly disable) |
-| DEPLOY_PROD_BRANCH | `master` (or your prod branch) |
-| DEPLOY_PROD_REGISTRY_URL | `registry.heroku.com` |
-| DEPLOY_PROD_APP_URL | `registry.heroku.com/<Heroku Prod App Slug>/web` |
-| DOCKER_USERNAME | *Docker username* |
-| DOCKER_PASSWORD | *Docker password* |
+| ENVIRONMENT_NAME | The name of your environment (e.g. `'prod'`) |
+| DJANGO_SECRET_KEY | A unique, unpredictable value |
+| DJANGO_ALLOWED_HOSTS | A comma separated list of origins that can host this API (e.g. my-app.herokuapp.com) |
+| DJANGO_CORS_ORIGIN_WHITELIST | A comma separated list of origins that can access this API (e.g. localhost:8080) |
+| DJANGO_ADMIN_URL | The URL to use for the Django Admin (should be random for security) |
+| DJANGO_CONFIGURATION | The Django settings class to use |
+| DJANGO_SETTINGS_MODULE | The Python module from which to load the Django settings class |
+| DJANGO_DEFAULT_FROM_EMAIL | The default sender for transactional emails |
 
 
-# OAuth Setup
+### OAuth Setup
 1. Visit the project in your web browser: http://localhost:8000/
 2. Login with an admin user.
 3. Register a new application via the OAuth application endpoint: http://localhost:8000/api/v1/auth/oauth/applications/
 
 
-# Other Tasks
-* Build the project:
+## Other Tasks
+### Build Docker
+This is required after every dependency change.
 ```bash
 docker-compose build
 ```
 
-* Run a command inside Docker:
+### Run a command inside Docker
 ```bash
 docker-compose run --rm web <command>
 ```
 
-* Destroy the project's Docker containers, networks, volumes, and images:
+### Destroy Docker
+This destroys the project's Docker containers, networks, volumes, and images.
 ```bash
 docker-compose down
+```
+
+### Run PSQL
+```bash
+docker-compose run --rm postgres psql postgres://postgres:@postgres:5432/postgres
+```
+
+### Get the Heroku database connection url
+```bash
+heroku pg:credentials:url DATABASE
 ```

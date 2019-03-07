@@ -1,0 +1,18 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+    - plan: heroku-redis
+      as: REDIS
+
+build:
+  docker:
+    web: Dockerfile.heroku
+
+release:
+  image: web
+  command:
+    - scripts/heroku/deploy_web.sh
+
+run:
+  web: gunicorn config.asgi:application -b 0.0.0.0:${PORT} -k config.server.production.ProductionUvicornWorker --access-logfile -
