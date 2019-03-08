@@ -1,0 +1,14 @@
+FROM python:3.7
+ENV PYTHONUNBUFFERED 1
+
+# Allows docker to cache installed dependencies between builds
+COPY Pipfile* ./
+RUN pip install pipenv
+RUN pipenv install --dev --system --deploy --ignore-pipfile
+
+# Adds our application code to the image
+COPY . /code/
+WORKDIR /code
+
+# Expose Django's port
+EXPOSE $PORT

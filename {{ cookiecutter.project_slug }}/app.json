@@ -1,0 +1,20 @@
+{
+  "name": "{{ cookiecutter.project_name }}",
+  "description": "",
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.6"
+      }
+    },
+    {
+      "plan": "heroku-redis",
+      "options": {
+        "version": "4.0"
+      }
+    }
+  ],
+  "stack": "container",
+  "buildpacks": []
+}

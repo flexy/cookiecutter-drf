@@ -12,22 +12,6 @@ services:
 jobs:
   include:
   - stage: test
-    before_install: bash travis/before_install.sh
+    before_install: bash scripts/travis/before_install.sh
     install: true
-    script: bash travis/test.sh
-
-  - stage: deploy
-    if: env(DEPLOY_DEV_ENABLED) = true AND branch = env(DEPLOY_DEV_BRANCH)
-    install: true
-    script: skip
-    deploy:
-      provider: script
-      script: bash travis/deploy_dev.sh
-
-  - stage: deploy
-    if: env(DEPLOY_PROD_ENABLED) = true AND branch = env(DEPLOY_PROD_BRANCH)
-    install: true
-    script: skip
-    deploy:
-      provider: script
-      script: bash travis/deploy_prod.sh
+    script: bash scripts/travis/test.sh

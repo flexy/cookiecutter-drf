@@ -1,27 +1,44 @@
 version: '3.6'
 
+x-web-environment:
+  &web-environment
+  environment:
+    - PORT=8000
+    - ENVIRONMENT_NAME=local_dev
+    - USING_DOCKER_COMPOSE=true
+    - DJANGO_SETTINGS_MODULE=config.settings.local
+    - DJANGO_CONFIGURATION=Local
+    - DJANGO_SECRET_KEY
+    - DJANGO_ALLOWED_HOSTS
+    - DJANGO_CORS_ORIGIN_WHITELIST
+    - DJANGO_ADMIN_URL=real-admin
+  build:
+    context: ./
+    dockerfile: Dockerfile.local
+  volumes:
+    - type: bind
+      source: ./
+      target: /code
+  depends_on:
+    - postgres
+    - redis
+
 services:
   postgres:
     image: postgres:9.6
 
+  redis:
+    image: redis:4.0.11
+
   web:
+    <<: *web-environment
     restart: always
-    environment:
-      - USING_DOCKER=true
-      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
-      - DJANGO_ALLOWED_HOSTS=${DJANGO_ALLOWED_HOSTS}
-      - DJANGO_CORS_ORIGIN_WHITELIST=${DJANGO_CORS_ORIGIN_WHITELIST}
     image: web
-    build: ./
+    ports:
+      - "8000:8000"
     command: >
       bash -c "
-        python wait_for_postgres.py &&
+        python scripts/local/wait_for_postgres.py &&
         ./manage.py migrate &&
         ./manage.py runserver 0.0.0.0:8000
       "
-    volumes:
-      - ./:/code
-    ports:
-      - "8000:8000"
-    depends_on:
-      - postgres

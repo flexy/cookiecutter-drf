@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
+uvicorn = "*"
 newrelic = "*"
 django = "*"
 "psycopg2-binary" = "*"
