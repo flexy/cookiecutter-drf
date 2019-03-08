@@ -98,6 +98,26 @@ class BaseConfiguration(Configuration):
     # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
     WSGI_APPLICATION = 'config.wsgi.application'
 
+    # Redis
+    redis_url = env.str('REDIS_URL', default='redis://redis:6379')
+
+    # Caches
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": redis_url,
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+                "COMPRESSOR": "django_redis.compressors.lz4.Lz4Compressor",
+            }
+        }
+    }
+
+    # Sessions
+    # We are using the cache backend with Redis
+    SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+    SESSION_CACHE_ALIAS = "default"
+
     # DATABASES
     # https://docs.djangoproject.com/en/dev/ref/settings/#databases
     DATABASES = {
