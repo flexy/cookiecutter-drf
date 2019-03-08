@@ -13,11 +13,12 @@ cookiecutter gh:fndrz/cookiecutter-drf
 
 ## Features
 ### Architecture:
-* Containerized (Docker)
-* Dependency and python version management (Pipenv)
+* Containerized with Docker
 * Python 3.7
 * Django 2.1
-* Web server: Gunicorn + Uvicorn 
+* Web server: Gunicorn and Uvicorn
+* Databases: PostgreSQL 9.6, Redis 4.0.11
+* Dependency and python version management (Pipenv)
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)
