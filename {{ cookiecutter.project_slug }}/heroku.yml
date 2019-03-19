@@ -15,4 +15,4 @@ release:
     - scripts/heroku/deploy_web.sh
 
 run:
-  web: gunicorn config.asgi:application -b 0.0.0.0:${PORT} -k config.server.production.ProductionUvicornWorker --access-logfile -
+  web: gunicorn config.wsgi:application -b 0.0.0.0:${PORT} -k config.server.production.ProductionUvicornWorker --access-logfile -
