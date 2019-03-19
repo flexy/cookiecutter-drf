@@ -22,7 +22,7 @@ cookiecutter gh:fndrz/cookiecutter-drf
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)
-* Better logging (logutils)
+* Better logging (Sentry, logutils)
 * Common model fields and mixins (django-model-utils)
 
 ### API:

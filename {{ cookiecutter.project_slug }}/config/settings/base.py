@@ -1,5 +1,4 @@
 import environ
-
 from configurations import Configuration
 
 
@@ -225,3 +224,16 @@ class BaseConfiguration(Configuration):
             'rest_framework.versioning.AcceptHeaderVersioning',
         'DEFAULT_VERSION': '1.0',
     }
+
+    def __init__(self, *args, **kwargs):
+        # Initialize sentry
+        SENTRY_DSN = self.env('SENTRY_DSN', None)
+        if SENTRY_DSN:
+            import sentry_sdk
+            from sentry_sdk.integrations.django import DjangoIntegration
+            sentry_sdk.init(
+                SENTRY_DSN,
+                integrations=[DjangoIntegration()]
+            )
+
+        return super().__init__(*args, **kwargs)
