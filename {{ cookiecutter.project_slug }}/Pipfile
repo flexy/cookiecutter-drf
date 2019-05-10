@@ -40,6 +40,7 @@ factory-boy = "*"
 django-debug-toolbar = "*"
 black = "*"
 pre-commit = "*"
+watchdog = "*"
 
 [requires]
 python_version = "3.7"
