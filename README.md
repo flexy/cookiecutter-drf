@@ -20,6 +20,7 @@ cookiecutter gh:flexy/cookiecutter-drf
 * Web server: Gunicorn and Uvicorn
 * Databases: PostgreSQL, Redis
 * Dependency and python version management (Pipenv)
+* Tasks: Celery and Celery Beat
 
 ### Utilities:
 * Better settings (django-environ, django-configurations)

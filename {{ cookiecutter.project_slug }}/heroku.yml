@@ -15,4 +15,12 @@ release:
     - scripts/heroku/deploy_web.sh
 
 run:
-  web: gunicorn config.wsgi:application -b 0.0.0.0:${PORT} -k config.server.production.ProductionUvicornWorker --access-logfile -
+  web: scripts/heroku/run_web.sh
+
+  celery:
+    image: web
+    command: scripts/heroku/run_celery.sh
+
+  celery_beat:
+    image: web
+    command: scripts/heroku/run_celery_beat.sh

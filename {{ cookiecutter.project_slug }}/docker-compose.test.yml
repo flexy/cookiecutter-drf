@@ -33,21 +33,14 @@ services:
     image: web
     ports:
       - "8000:8000"
-    command: scripts/local/run.sh
+    command: scripts/local/run_web.sh
 
-  # celery:
-  #  <<: *web-environment
-  #  restart: always
-  #  command: >-
-  #      watchmedo
-  #      auto-restart --patterns="*.py" -d api
-  #      -- celery -A config.celery worker -l info
+  celery:
+    <<: *web-environment
+    restart: always
+    command: scripts/local/run_celery.sh
 
-  # celery-beat:
-  #  <<: *web-environment
-  #  restart: always
-  #  command: >-
-  #      watchmedo
-  #      auto-restart --patterns="*.py" -d api
-  #      -- celery -A config.celery beat -l info
-  #      --scheduler django_celery_beat.schedulers:DatabaseScheduler
+  celery-beat:
+    <<: *web-environment
+    restart: always
+    command: scripts/local/run_celery_beat.sh

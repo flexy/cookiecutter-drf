@@ -26,6 +26,8 @@ drf-yasg = {version = "*",extras = ["validation"]}
 django-redis = "*"
 lz4 = "*"
 sentry-sdk = "*"
+celery = "*"
+django-celery-beat = "*"
 
 [dev-packages]
 "flake8" = "*"
