@@ -190,7 +190,7 @@ class BaseConfiguration(Configuration):
 
     def __init__(self, *args, **kwargs):
         # Initialize sentry
-        SENTRY_DSN = self.env("SENTRY_DSN", None)
+        SENTRY_DSN = self.env("SENTRY_DSN", default=None)
         if SENTRY_DSN:
             import sentry_sdk
             from sentry_sdk.integrations.django import DjangoIntegration
