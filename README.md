@@ -15,9 +15,9 @@ cookiecutter gh:flexy/cookiecutter-drf
 ### Architecture:
 * Containerized with Docker
 * Python 3.7
-* Django 2.1
+* Django 2.2
 * Web server: Gunicorn and Uvicorn
-* Databases: PostgreSQL 9.6, Redis 4.0.11
+* Databases: PostgreSQL, Redis
 * Dependency and python version management (Pipenv)
 
 ### Utilities:
