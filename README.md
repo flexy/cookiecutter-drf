@@ -1,13 +1,13 @@
 # cookiecutter-drf
-[![Build Status](https://travis-ci.com/fndrz/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/fndrz/cookiecutter-drf)
-[![codecov](https://codecov.io/gh/fndrz/cookiecutter-drf/branch/master/graph/badge.svg?token=aG2CYaPmQ0)](https://codecov.io/gh/fndrz/cookiecutter-drf)
+[![Build Status](https://travis-ci.com/flexy/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/flexy/cookiecutter-drf)
+[![codecov](https://codecov.io/gh/flexy/cookiecutter-drf/branch/master/graph/badge.svg?token=aG2CYaPmQ0)](https://codecov.io/gh/flexy/cookiecutter-drf)
 
 
 ## Getting Started
 1. [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 2. Generate your project from cookiecutter-drf:
 ```bash
-cookiecutter gh:fndrz/cookiecutter-drf
+cookiecutter gh:flexy/cookiecutter-drf
 ```
 
 
