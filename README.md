@@ -57,6 +57,22 @@ cookiecutter gh:flexy/cookiecutter-drf
 
 
 ## Development
+### Getting started
+1. Install dependencies:
+```bash
+pipenv install
+```
+
+2. Launch the project environment:
+```bash
+pipenv shell
+```
+
+3. Initialize [pre-commit](https://pre-commit.com/):
+```bash
+pre-commit install
+```
+
 ### Generate the project
 ```bash
 cookiecutter . --no-input --overwrite-if-exists

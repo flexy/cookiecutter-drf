@@ -1,0 +1,11 @@
+repos:
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 0f3f4ff9b4e7901695484ee1ea1fbcbc19632149
+  hooks:
+  - id: flake8
+
+- repo: https://github.com/ambv/black
+  rev: stable
+  hooks:
+  - id: black
+    language_version: python3.7
