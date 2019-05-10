@@ -7,6 +7,6 @@ class Test(BaseConfiguration):
     DEBUG = True
 
     # Email
-    EMAIL_HOST = 'localhost'
+    EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
