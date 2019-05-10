@@ -38,10 +38,7 @@ docker-compose run --rm web ./manage.py createsuperuser
 
 | Key | Value |
 | --- | --- |
-| ENVIRONMENT_NAME | `'test'` |
 | DJANGO_SECRET_KEY | A unique, unpredictable value |
-| DJANGO_CONFIGURATION | '`config.settings.test`' |
-| DJANGO_SETTINGS_MODULE | '`Test`' |
 
 
 ### Heroku Setup

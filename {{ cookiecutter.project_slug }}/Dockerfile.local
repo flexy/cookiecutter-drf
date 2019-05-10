@@ -1,5 +1,8 @@
-FROM python:3.7
+FROM python:3-alpine
 ENV PYTHONUNBUFFERED 1
+
+# Add system dependencies
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev
 
 # Allows docker to cache installed dependencies between builds
 COPY Pipfile* ./

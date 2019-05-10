@@ -3,16 +3,10 @@
   "description": "",
   "addons": [
     {
-      "plan": "heroku-postgresql",
-      "options": {
-        "version": "9.6"
-      }
+      "plan": "heroku-postgresql"
     },
     {
-      "plan": "heroku-redis",
-      "options": {
-        "version": "4.0"
-      }
+      "plan": "heroku-redis"
     }
   ],
   "stack": "container",

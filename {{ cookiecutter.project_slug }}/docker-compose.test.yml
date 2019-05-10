@@ -1,0 +1,53 @@
+version: '3.7'
+
+x-web-environment:
+  &web-environment
+  environment:
+    - PORT=8000
+    - ENVIRONMENT_NAME=test
+    - USING_DOCKER_COMPOSE=true
+    - DJANGO_SETTINGS_MODULE=config.settings.test
+    - DJANGO_CONFIGURATION=Test
+    - DJANGO_SECRET_KEY
+  build:
+    context: ./
+    dockerfile: Dockerfile.local
+  volumes:
+    - type: bind
+      source: ./
+      target: /code
+  depends_on:
+    - postgres
+    - redis
+
+services:
+  postgres:
+    image: postgres:alpine
+
+  redis:
+    image: redis:alpine
+
+  web:
+    <<: *web-environment
+    restart: always
+    image: web
+    ports:
+      - "8000:8000"
+    command: scripts/local/run.sh
+
+  # celery:
+  #  <<: *web-environment
+  #  restart: always
+  #  command: >-
+  #      watchmedo
+  #      auto-restart --patterns="*.py" -d api
+  #      -- celery -A config.celery worker -l info
+
+  # celery-beat:
+  #  <<: *web-environment
+  #  restart: always
+  #  command: >-
+  #      watchmedo
+  #      auto-restart --patterns="*.py" -d api
+  #      -- celery -A config.celery beat -l info
+  #      --scheduler django_celery_beat.schedulers:DatabaseScheduler

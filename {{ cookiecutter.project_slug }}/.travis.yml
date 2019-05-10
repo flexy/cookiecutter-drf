@@ -14,4 +14,4 @@ jobs:
   - stage: test
     before_install: bash scripts/travis/before_install.sh
     install: true
-    script: bash scripts/travis/test.sh
+    script: bash scripts/travis/script.sh
