@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 cookiecutter = "*"
+black = "*"
 
 [dev-packages]
 cookiecutter = "*"
@@ -12,3 +13,6 @@ codecov = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
