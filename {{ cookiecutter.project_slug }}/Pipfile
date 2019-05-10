@@ -36,6 +36,11 @@ pytest-cov = "*"
 django-rest-assured = "*"
 factory-boy = "*"
 django-debug-toolbar = "*"
+black = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
