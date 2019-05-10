@@ -7,7 +7,7 @@ name = "pypi"
 gunicorn = "*"
 uvicorn = "*"
 redis = "*"
-django = ">=2.2"
+django = {extras = ["argon2"],version = ">=2.2"}
 psycopg2-binary = ">=2.8"
 whitenoise = "*"
 django-environ = "*"

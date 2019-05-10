@@ -162,6 +162,7 @@ class BaseConfiguration(Configuration):
         "rest_framework_social_oauth2.backends.DjangoOAuth2",
         "django.contrib.auth.backends.ModelBackend",
     ]
+    PASSWORD_HASHERS = ["django.contrib.auth.hashers.Argon2PasswordHasher"]
 
     # django-oauth-toolkit
     OAUTH2_PROVIDER = {
