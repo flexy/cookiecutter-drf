@@ -70,6 +70,7 @@ docker-compose build
 ```
 
 ### Run a command inside Docker
+Note: Bash is not available in Linux Alpine, so you must use `ash` or `sh`.
 ```bash
 docker-compose run --rm web <command>
 ```
