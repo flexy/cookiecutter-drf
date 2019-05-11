@@ -16,9 +16,7 @@ class Production(BaseConfiguration):
     ]
 
     # Static files config
-    STATICFILES_STORAGE = (
-        "whitenoise.storage.CompressedManifestStaticFilesStorage"
-    )  # noqa
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
     # SSL: https://docs.djangoproject.com/en/dev/topics/security/#ssl-https
     SECURE_SSL_REDIRECT = True

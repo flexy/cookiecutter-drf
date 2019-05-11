@@ -166,7 +166,7 @@ class BaseConfiguration(Configuration):
 
     # django-oauth-toolkit
     OAUTH2_PROVIDER = {
-        "OAUTH2_BACKEND_CLASS": "oauth2_provider.oauth2_backends.JSONOAuthLibCore"  # noqa
+        "OAUTH2_BACKEND_CLASS": "oauth2_provider.oauth2_backends.JSONOAuthLibCore"
     }
 
     # djoser

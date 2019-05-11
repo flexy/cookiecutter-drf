@@ -14,7 +14,7 @@ os.environ.setdefault("DJANGO_CONFIGURATION", "Production")
 
 
 # This is imported here to allow the environment variables to be set
-from configurations.wsgi import get_wsgi_application  # noqa
+from configurations.wsgi import get_wsgi_application  # noqa: E402
 
 
 # Initialize Django
