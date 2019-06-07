@@ -1,5 +1,5 @@
 # cookiecutter-drf
-[![Build Status](https://travis-ci.com/flexy/cookiecutter-drf.svg?token=qdpTcWC2mqQPPSZNoKk1&branch=master)](https://travis-ci.com/flexy/cookiecutter-drf)
+[![Build Status](https://travis-ci.org/flexy/cookiecutter-drf.svg?branch=develop)](https://travis-ci.org/flexy/cookiecutter-drf)
 [![codecov](https://codecov.io/gh/flexy/cookiecutter-drf/branch/master/graph/badge.svg)](https://codecov.io/gh/flexy/cookiecutter-drf)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
