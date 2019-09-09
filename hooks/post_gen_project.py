@@ -2,4 +2,5 @@ from subprocess import call
 
 
 # Format generated project with Black
-call(["black", "."])
+call(["pipenv", "install", "--dev"])
+call(["pipenv", "run", "black", "."])
