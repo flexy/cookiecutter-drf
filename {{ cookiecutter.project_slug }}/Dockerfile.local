@@ -6,7 +6,7 @@ RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev mak
 
 # Allows docker to cache installed dependencies between builds
 COPY Pipfile* ./
-RUN pip install pipenv
+RUN pip3 install pipenv
 RUN pipenv install --dev --system --deploy --ignore-pipfile
 
 # Adds our application code to the image
