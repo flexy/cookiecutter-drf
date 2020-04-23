@@ -6,6 +6,7 @@
 
 ## Getting Started
 1. [Install cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html).
+2. `pip3 install pipenv`
 2. Generate your project from cookiecutter-drf:
 ```bash
 cookiecutter gh:flexy/cookiecutter-drf
