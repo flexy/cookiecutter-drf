@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM alpine:latest
 ENV PYTHONUNBUFFERED 1
 
 # Add system dependencies
@@ -6,6 +6,7 @@ RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev libffi-dev mak
 
 # Allows docker to cache installed dependencies between builds
 COPY Pipfile* ./
+RUN pip3 install --upgrade pip
 RUN pip3 install pipenv
 RUN pipenv install --dev --system --deploy --ignore-pipfile
 
