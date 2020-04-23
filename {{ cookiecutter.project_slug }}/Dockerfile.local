@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM alpine:latest
 ENV PYTHONUNBUFFERED 1
 
 # Add system dependencies
